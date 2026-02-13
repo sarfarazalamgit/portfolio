@@ -1,189 +1,168 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Riley Park — Data Engineer</title>
-  <meta name="description" content="Riley Park — Aspiring Data Engineer. Portfolio showcasing pipelines, ETL, cloud, streaming, and projects." />
-  <style>
-    :root{
-      --bg:#071027; --card:#071428; --muted:#9fb0bd; --accent:#06b6d4;
-      --glass: rgba(255,255,255,0.03); --radius:12px; --maxw:900px;
-      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%;margin:0}
-    body{
-      background: linear-gradient(180deg,#021226 0%, var(--bg) 100%);
-      color:#e8f4f7;padding:28px;display:flex;justify-content:center;
-      -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
-    }
-    .wrap{width:100%;max-width:var(--maxw);background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);border-radius:16px;padding:22px;box-shadow:0 12px 36px rgba(2,6,23,0.6);backdrop-filter:blur(6px)}
-    header{display:flex;gap:16px;align-items:center}
-    .badge-avatar{width:84px;height:84px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#60a5fa);display:flex;align-items:center;justify-content:center;font-weight:800;color:#042a2f;font-size:26px;flex:0 0 84px}
-    .hdr-title h1{margin:0;font-size:20px}
-    .hdr-title p{margin:6px 0 0;color:var(--muted);font-size:14px}
-    .top-actions{margin-left:auto;display:flex;gap:8px;align-items:center}
-    .btn{background:var(--accent);color:#042024;padding:8px 10px;border-radius:10px;border:none;cursor:pointer;font-weight:700;font-size:13px}
-    .btn-secondary{background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted);padding:8px 10px;border-radius:10px;cursor:pointer;font-size:13px}
-
-    main{margin-top:18px;padding:18px;border-radius:12px;min-height:360px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent)}
-    h2{margin:0 0 12px 0;font-size:16px}
-    p.lead{color:var(--muted);margin:0 0 12px 0;line-height:1.5}
-    .projects-grid{display:grid;grid-template-columns:1fr;gap:12px;margin-top:12px}
-    .project-card{background:rgba(255,255,255,0.02);padding:14px;border-radius:12px;display:flex;flex-direction:column;gap:10px;transition:transform .16s,box-shadow .16s}
-    .project-card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(2,6,23,0.45)}
-    .project-title{font-weight:700}
-    .project-meta{color:var(--muted);font-size:13px}
-    .project-actions{display:flex;gap:8px;margin-top:8px}
-    .section-card{background:rgba(255,255,255,0.02);padding:14px;border-radius:12px;margin-top:14px}
-    .skills{display:flex;flex-wrap:wrap;gap:8px}
-    .skill{background:rgba(255,255,255,0.02);padding:8px 10px;border-radius:999px;font-size:13px;color:var(--muted)}
-    .detail-panel{position:fixed;right:20px;top:80px;width:420px;max-width:calc(100% - 40px);background:#031026;border-radius:12px;padding:16px;box-shadow:0 24px 60px rgba(2,6,23,0.6);transform:translateY(12px);opacity:0;pointer-events:none;transition:all .22s}
-    .detail-panel.show{transform:none;opacity:1;pointer-events:auto}
-    .detail-close{background:transparent;border:none;color:var(--muted);font-size:16px;cursor:pointer;float:right}
-    footer{margin-top:18px;color:var(--muted);display:flex;justify-content:space-between;align-items:center;font-size:13px}
-    @media (max-width:640px){.wrap{padding:16px}.badge-avatar{width:72px;height:72px;font-size:22px}}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Engineer Portfolio</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+<style>
+[v-cloak] { display: none; }
+.skill-badge {
+	transition: transform 0.3s ease;
+}
+.skill-badge:hover {
+	transform: scale(1.1);
+}
+</style>
 </head>
-<body>
-  <div class="wrap" role="main">
-    <header>
-      <div class="badge-avatar" aria-hidden="true">RP</div>
-      <div class="hdr-title">
-        <h1>Riley Park <span style="margin-left:8px;background:rgba(6,182,212,0.12);color:var(--accent);padding:6px 8px;border-radius:999px;font-weight:700;font-size:12px">Aspiring Data Engineer</span></h1>
-        <p>Crafting reliable data pipelines, observability, and automated ETL for analytics and ML.</p>
-      </div>
+<body class="bg-gray-50 text-gray-800">
+<div id="app" v-cloak class="container mx-auto px-4 max-w-4xl">
+<!-- Navigation -->
+<nav class="flex justify-between items-center py-6">
+<h1 class="text-2xl font-bold">MD SARFARAZ ALAM</h1>
+<div class="space-x-4">
+<a href="#about" class="hover:text-blue-600">About</a>
+<a href="#skills" class="hover:text-blue-600">Skills</a>
+<a href="#projects" class="hover:text-blue-600">Projects</a>
+<a href="#contact" class="hover:text-blue-600">Contact</a>
+</div>
+</nav>
 
-      <!-- Resume at top -->
-      <div class="top-actions">
-        <a class="btn-secondary" href="#" download="Riley-Park-Resume.pdf">Download Resume</a>
-      </div>
-    </header>
+<!-- Hero Section -->
+<header class="text-center py-16">
+<img 
+src="https://via.placeholder.com/150" 
+alt="Profile" 
+class="mx-auto rounded-full w-48 h-48 object-cover mb-6 shadow-lg"
+>
+<h2 class="text-4xl font-bold mb-4">Data Engineering Professional</h2>
+<p class="text-xl text-gray-600">
+Transforming data into actionable insights
+</p>
+</header>
 
-    <main>
-      <section id="about">
-        <h2>About</h2>
-        <p class="lead">I build data platforms that scale: streaming ingestion, CI/CD for pipelines, data contracts, testing, and cost-optimized storage for analytics and ML.</p>
-        <div style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap">
-          <div style="background:rgba(255,255,255,0.02);padding:10px;border-radius:10px;font-size:14px"><strong>Location:</strong> Remote</div>
-          <div style="background:rgba(255,255,255,0.02);padding:10px;border-radius:10px;font-size:14px"><strong>Availability:</strong> Open to roles</div>
-        </div>
-      </section>
+<!-- About Section -->
+<section id="about" class="bg-white shadow-md rounded-lg p-8 mb-8">
+<h3 class="text-2xl font-semibold mb-4">About Me</h3>
+<p class="text-gray-700">
+Aspiring data engineer with knowledge in building scalable data pipelines, 
+leveraging cloud technologies, and transforming complex data into strategic insights. 
+Passionate about solving challenging data problems and driving business value through 
+innovative technological solutions.
+</p>
+</section>
 
-      <section id="projects">
-        <h2 style="margin-top:16px">Projects</h2>
-        <div class="projects-grid" id="projectsGrid">
-          <div class="project-card" data-id="p1">
-            <div class="project-title">Real-time Clickstream ETL</div>
-            <div class="project-meta">Kafka → Flink → Parquet on S3 · Snowflake auto-load</div>
-            <div class="project-actions">
-              <button class="btn" onclick="openDetail('p1')">View</button>
-              <a class="btn-secondary" href="#" target="_blank" rel="noopener">Repo</a>
-            </div>
-          </div>
+<!-- Skills Section -->
+<section id="skills" class="mb-8">
+<h3 class="text-2xl font-semibold mb-6">Technical Skills</h3>
+<div class="flex flex-wrap gap-4">
+<template v-for="skill in skills" :key="skill">
+<span 
+class="skill-badge px-4 py-2 bg-blue-100 text-blue-800 rounded-full inline-block"
+>
+{{ skill }}
+</span>
+</template>
+</div>
+</section>
 
-          <div class="project-card" data-id="p2">
-            <div class="project-title">Data Warehouse Migration</div>
-            <div class="project-meta">Redshift → Snowflake · dbt · automated validation</div>
-            <div class="project-actions">
-              <button class="btn" onclick="openDetail('p2')">View</button>
-              <a class="btn-secondary" href="#" target="_blank" rel="noopener">Case Study</a>
-            </div>
-          </div>
-        </div>
-      </section>
+<!-- Projects Section -->
+<section id="projects" class="mb-8">
+<h3 class="text-2xl font-semibold mb-6">Data Engineering Projects</h3>
+<div class="grid md:grid-cols-2 gap-6">
+<template v-for="project in projects" :key="project.name">
+<div class="bg-white shadow-md rounded-lg p-6">
+<h4 class="text-xl font-bold mb-3">{{ project.name }}</h4>
+<p class="text-gray-600 mb-4">{{ project.description }}</p>
+<div class="flex flex-wrap gap-2 mb-4">
+<template v-for="tech in project.technologies" :key="tech">
+<span class="bg-gray-100 text-gray-700 px-2 py-1 rounded-full text-sm">
+{{ tech }}
+</span>
+</template>
+</div>
+<a 
+:href="project.githubLink" 
+target="_blank" 
+class="text-blue-600 hover:underline flex items-center"
+>
+<i class="fab fa-github mr-2"></i> View on GitHub
+</a>
+</div>
+</template>
+</div>
+</section>
 
-      <!-- Moved sections below main -->
-      <section class="section-card" id="skills">
-        <h2>Skills</h2>
-        <div class="skills" style="margin-top:8px">
-          <div class="skill">Python</div><div class="skill">SQL</div><div class="skill">Kafka</div><div class="skill">Airflow</div><div class="skill">dbt</div><div class="skill">Snowflake</div><div class="skill">AWS</div><div class="skill">Terraform</div>
-        </div>
-      </section>
+<!-- Contact Section -->
+<section id="contact" class="bg-white shadow-md rounded-lg p-8">
+<h3 class="text-2xl font-semibold mb-6">Contact Me</h3>
+<div class="text-center">
+<p class="mb-4 text-gray-700">
+Want to discuss a project or have a question? 
+Feel free to reach out via email.
+</p>
+<a 
+href="mailto:sarfarazalam@tutamail.com?subject=Portfolio%20Inquiry" 
+class="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+>
+<i class="fas fa-envelope mr-2"></i> Send Email
+</a>
+</div>
 
-      <section class="section-card" id="contact">
-        <h2>Contact</h2>
-        <p style="color:var(--muted);margin:0 0 12px 0">Replace these with your email and profile links.</p>
-        <div style="display:flex;flex-direction:column;gap:8px">
-          <a class="btn" href="mailto:riley.park@example.com" style="text-align:left">riley.park@example.com</a>
-          <a class="btn-secondary" href="#" style="text-align:left">GitHub: github.com/rileypark</a>
-          <a class="btn-secondary" href="#" style="text-align:left">LinkedIn: /in/rileypark</a>
-        </div>
-      </section>
-    </main>
+<div class="mt-6 text-center">
+<h4 class="text-lg font-semibold mb-4">Connect with Me</h4>
+<div class="flex justify-center space-x-6">
+<a href="https://linkedin.com/in/alexrodriguez" target="_blank" class="text-2xl text-blue-600 hover:text-blue-800">
+<i class="fab fa-linkedin"></i>
+</a>
+<a href="https://github.com/sarfarazalamgit" target="_blank" class="text-2xl text-gray-700 hover:text-gray-900">
+<i class="fab fa-github"></i>
+</a>
 
-    <footer>
-      <div style="color:var(--muted)">© 2026 Riley Park</div>
-      <div style="color:var(--muted)">Designed for Data Engineering — edit content</div>
-    </footer>
-  </div>
+</div>
+</div>
+</section>
 
-  <!-- Project detail panel -->
-  <div id="detailPanel" class="detail-panel" aria-hidden="true">
-    <button class="detail-close" onclick="closeDetail()" aria-label="Close">✕</button>
-    <h3 id="detailTitle">Project Title</h3>
-    <div id="detailMeta" style="color:var(--muted);font-size:13px;margin-bottom:12px">Short meta</div>
-    <div id="detailBody" style="font-size:14px;color:#dff3f6;line-height:1.5">Project details go here.</div>
-    <div style="margin-top:12px;display:flex;gap:8px">
-      <a id="detailRepo" class="btn-secondary" href="#" target="_blank" rel="noopener">Repository</a>
-      <a id="detailLive" class="btn" href="#" target="_blank" rel="noopener">Live Demo</a>
-    </div>
-  </div>
+<!-- Footer -->
+<footer class="text-center py-8">
+<p class="text-gray-600">© 2026 MD SARFARAZ ALAM. All rights reserved.</p>
+</footer>
+</div>
 
-  <script>
-    const PROJECTS = {
-      p1: {
-        title: 'Real-time Clickstream ETL',
-        meta: 'Kafka · Flink · Parquet on S3 · Snowflake',
-        body: 'Ingested clickstream events via Kafka. Stream processing with Flink for enrichment and windowed aggregates, wrote partitioned Parquet to S3, automated Snowflake loading and validation checks. Added metrics and alerting for late/invalid events.',
-        repo: '#',
-        live: '#'
-      },
-      p2: {
-        title: 'Data Warehouse Migration',
-        meta: 'Redshift → Snowflake · dbt · CI/CD',
-        body: 'Planned and executed migration: schema mapping, decoupled ETL, dbt transformations, extensive data validation, and CI to run tests on PRs. Result: faster queries and lower maintenance.',
-        repo: '#',
-        live: '#'
-      }
-    };
+<script>
+const { createApp, ref } = Vue;
 
-    const panel = document.getElementById('detailPanel');
-    const titleEl = document.getElementById('detailTitle');
-    const metaEl = document.getElementById('detailMeta');
-    const bodyEl = document.getElementById('detailBody');
-    const repoEl = document.getElementById('detailRepo');
-    const liveEl = document.getElementById('detailLive');
-
-    function openDetail(id){
-      const p = PROJECTS[id];
-      if(!p) return;
-      titleEl.textContent = p.title;
-      metaEl.textContent = p.meta;
-      bodyEl.textContent = p.body;
-      repoEl.href = p.repo || '#';
-      liveEl.href = p.live || '#';
-      panel.classList.add('show');
-      panel.setAttribute('aria-hidden','false');
-      panel.querySelector('.detail-close').focus();
-      history.replaceState(null, '', '#' + id);
-    }
-
-    function closeDetail(){
-      panel.classList.remove('show');
-      panel.setAttribute('aria-hidden','true');
-      history.replaceState(null, '', location.pathname);
-    }
-
-    document.addEventListener('keydown', (e) => {
-      if(e.key === 'Escape') closeDetail();
-    });
-
-    window.addEventListener('load', () => {
-      const h = location.hash.replace('#','');
-      if(h && PROJECTS[h]) openDetail(h);
-    });
-  </script>
+createApp({
+	setup() {
+		const skills = ref([
+			'Pyspark', 'Databricks', 'Airflow', 'SQL', 'Python', 
+			'Apache Spark', 'AWS'
+			
+		]);
+		
+		const projects = ref([
+			{
+				name: 'Real-Time Sales Pipeline',
+				description: 'Developed scalable ETL process using Apache Spark and cloud technologies',
+				technologies: ['Python', 'Apache Spark', 'AWS', 'Kafka'],
+				githubLink: 'https://github.com/username/sales-pipeline'
+			},
+			{
+				name: 'Machine Learning Data Platform',
+				description: 'Built end-to-end ML data infrastructure with automated model deployment',
+				technologies: ['Python', 'Kubernetes', 'MLflow', 'TensorFlow'],
+				githubLink: 'https://github.com/username/ml-platform'
+			}
+		]);
+		
+		return {
+			skills,
+			projects
+		};
+	}
+}).mount('#app');
+</script>
 </body>
 </html>
