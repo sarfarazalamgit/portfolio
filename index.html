@@ -26,6 +26,7 @@
 <a href="#about" class="hover:text-blue-600">About</a>
 <a href="#skills" class="hover:text-blue-600">Skills</a>
 <a href="#projects" class="hover:text-blue-600">Projects</a>
+<a href="#education" class="hover:text-blue-600">Education</a>
 <a href="#contact" class="hover:text-blue-600">Contact</a>
 </div>
 </nav>
@@ -53,6 +54,7 @@ Passionate about solving challenging data problems and driving business value th
 innovative technological solutions.
 </p>
 </section>
+
 
 <!-- Skills Section -->
 <section id="skills" class="mb-8">
@@ -95,6 +97,22 @@ class="text-blue-600 hover:underline flex items-center"
 </div>
 </section>
 
+<!-- Education Section -->
+<section id="education" class="bg-white shadow-md rounded-lg p-8 mb-8">
+<h3 class="text-2xl font-semibold mb-4">Education</h3>
+<div class="mb-4">
+<h4 class="text-lg font-bold">JNV Pakur</h4>
+<p class="text-gray-600">Intermediate: 2022</p>
+</div>
+<div>
+<h4 class="text-lg font-bold">Degree College Maheshpur</h4>
+<p class="text-gray-600">History (Honors): 2025 - Present</p>
+</div>
+
+
+
+</section>
+
 <!-- Contact Section -->
 <section id="contact" class="bg-white shadow-md rounded-lg p-8">
 <h3 class="text-2xl font-semibold mb-6">Contact Me</h3>
@@ -114,13 +132,9 @@ class="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hove
 <div class="mt-6 text-center">
 <h4 class="text-lg font-semibold mb-4">Connect with Me</h4>
 <div class="flex justify-center space-x-6">
-<!--<a href="https://linkedin.com/in/alexrodriguez" target="_blank" class="text-2xl text-blue-600 hover:text-blue-800">
-<i class="fab fa-linkedin"></i>
-</a>-->
 <a href="https://github.com/sarfarazalamgit" target="_blank" class="text-2xl text-gray-700 hover:text-gray-900">
 <i class="fab fa-github"></i>
 </a>
-
 </div>
 </div>
 </section>
@@ -138,8 +152,7 @@ createApp({
 	setup() {
 		const skills = ref([
 			'Pyspark', 'Databricks', 'Airflow', 'SQL', 'Python', 
-		    'Linux', 'Apache Spark', 'AWS'
-			
+			'Linux', 'Apache Spark', 'AWS'
 		]);
 		
 		const projects = ref([
