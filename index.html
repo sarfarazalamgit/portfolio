@@ -1,180 +1,187 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Data Engineer Portfolio</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-<style>
-[v-cloak] { display: none; }
-.skill-badge {
-	transition: transform 0.3s ease;
-}
-.skill-badge:hover {
-	transform: scale(1.1);
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Engineer Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        [v-cloak] { display: none; }
+        .skill-badge {
+            transition: transform 0.3s ease;
+        }
+        .skill-badge:hover {
+            transform: scale(1.1);
+        }
+    </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
 <div id="app" v-cloak class="container mx-auto px-4 max-w-4xl">
-<!-- Navigation -->
-<nav class="flex justify-between items-center py-6">
-<h1 class="text-2xl font-bold">MD SARFARAZ ALAM</h1>
-<div class="space-x-4">
-<a href="#about" class="hover:text-blue-600">About</a>
-<a href="#skills" class="hover:text-blue-600">Skills</a>
-<a href="#projects" class="hover:text-blue-600">Projects</a>
-<a href="#education" class="hover:text-blue-600">Education</a>
-<a href="#contact" class="hover:text-blue-600">Contact</a>
-</div>
-</nav>
+    <!-- Navigation -->
+    <nav class="flex justify-between items-center py-6">
+        <h1 class="text-2xl font-bold">MD SARFARAZ ALAM</h1>
+        <div class="space-x-4">
+            <a href="#about" class="hover:text-blue-600">About</a>
+            <a href="#skills" class="hover:text-blue-600">Skills</a>
+            <a href="#projects" class="hover:text-blue-600">Projects</a>
+            <a href="#education" class="hover:text-blue-600">Education</a>
+            <a href="#contact" class="hover:text-blue-600">Contact</a>
+        </div>
+    </nav>
 
-<!-- Hero Section -->
-<header class="text-center py-16">
-<img 
-src="profile.jpg" 
-alt="Profile" 
-class="mx-auto rounded-full w-48 h-48 object-cover mb-6 shadow-lg"
->
-<h2 class="text-4xl font-bold mb-4">Aspiring Data Engineer</h2>
-<p class="text-xl text-gray-600">
-Transforming Data Into Actionable Insights
-</p>
-</header>
+    <!-- Hero Section -->
+    <header class="text-center py-16">
+        <img 
+            src="profile.jpg" 
+            alt="Profile" 
+            class="mx-auto rounded-full w-48 h-48 object-cover mb-6 shadow-lg"
+        >
+        <h2 class="text-4xl font-bold mb-4">Aspiring Data Engineer</h2>
+        <p class="text-xl text-gray-600">
+            Transforming Data Into Actionable Insights
+        </p>
+        
+        <!-- Download Resume Button -->
+        <div class="text-center mt-6">
+            <a 
+                href="path/to/your/resume.pdf" 
+                download 
+                class="inline-flex items-center px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition"
+            >
+                <i class="fas fa-file-download mr-2"></i> Download Resume
+            </a>
+        </div>
+    </header>
 
-<!-- About Section -->
-<section id="about" class="bg-white shadow-md rounded-lg p-8 mb-8">
-<h3 class="text-2xl font-semibold mb-4">About Me</h3>
-<p class="text-gray-700">
-Aspiring data engineer with knowledge in building scalable data pipelines, 
-leveraging cloud technologies, and transforming complex data into strategic insights. 
-Passionate about solving challenging data problems and driving business value through 
-innovative technological solutions.
-</p>
-</section>
+    <!-- About Section -->
+    <section id="about" class="bg-white shadow-md rounded-lg p-8 mb-8">
+        <h3 class="text-2xl font-semibold mb-4">About Me</h3>
+        <p class="text-gray-700">
+            Aspiring data engineer with knowledge in building scalable data pipelines, 
+            leveraging cloud technologies, and transforming complex data into strategic insights. 
+            Passionate about solving challenging data problems and driving business value through 
+            innovative technological solutions.
+        </p>
+    </section>
 
+    <!-- Skills Section -->
+    <section id="skills" class="mb-8">
+        <h3 class="text-2xl font-semibold mb-6">Technical Skills</h3>
+        <div class="flex flex-wrap gap-4">
+            <template v-for="skill in skills" :key="skill">
+                <span 
+                    class="skill-badge px-4 py-2 bg-blue-100 text-blue-800 rounded-full inline-block"
+                >
+                {{ skill }}
+                </span>
+            </template>
+        </div>
+    </section>
 
-<!-- Skills Section -->
-<section id="skills" class="mb-8">
-<h3 class="text-2xl font-semibold mb-6">Technical Skills</h3>
-<div class="flex flex-wrap gap-4">
-<template v-for="skill in skills" :key="skill">
-<span 
-class="skill-badge px-4 py-2 bg-blue-100 text-blue-800 rounded-full inline-block"
->
-{{ skill }}
-</span>
-</template>
-</div>
-</section>
+    <!-- Projects Section -->
+    <section id="projects" class="mb-8">
+        <h3 class="text-2xl font-semibold mb-6">Data Engineering Projects</h3>
+        <div class="grid md:grid-cols-2 gap-6">
+            <template v-for="project in projects" :key="project.name">
+                <div class="bg-white shadow-md rounded-lg p-6">
+                    <h4 class="text-xl font-bold mb-3">{{ project.name }}</h4>
+                    <p class="text-gray-600 mb-4">{{ project.description }}</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <template v-for="tech in project.technologies" :key="tech">
+                            <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded-full text-sm">
+                                {{ tech }}
+                            </span>
+                        </template>
+                    </div>
+                    <a 
+                        :href="project.githubLink" 
+                        target="_blank" 
+                        class="text-blue-600 hover:underline flex items-center"
+                    >
+                        <i class="fab fa-github mr-2"></i> View on GitHub
+                    </a>
+                </div>
+            </template>
+        </div>
+    </section>
 
-<!-- Projects Section -->
-<section id="projects" class="mb-8">
-<h3 class="text-2xl font-semibold mb-6">Data Engineering Projects</h3>
-<div class="grid md:grid-cols-2 gap-6">
-<template v-for="project in projects" :key="project.name">
-<div class="bg-white shadow-md rounded-lg p-6">
-<h4 class="text-xl font-bold mb-3">{{ project.name }}</h4>
-<p class="text-gray-600 mb-4">{{ project.description }}</p>
-<div class="flex flex-wrap gap-2 mb-4">
-<template v-for="tech in project.technologies" :key="tech">
-<span class="bg-gray-100 text-gray-700 px-2 py-1 rounded-full text-sm">
-{{ tech }}
-</span>
-</template>
-</div>
-<a 
-:href="project.githubLink" 
-target="_blank" 
-class="text-blue-600 hover:underline flex items-center"
->
-<i class="fab fa-github mr-2"></i> View on GitHub
-</a>
-</div>
-</template>
-</div>
-</section>
+    <!-- Education Section -->
+    <section id="education" class="bg-white shadow-md rounded-lg p-8 mb-8">
+        <h3 class="text-2xl font-semibold mb-4">Education</h3>
+        <div class="mb-4">
+            <h4 class="text-lg font-bold">JNV Pakur</h4>
+            <p class="text-gray-600">Intermediate: 2022</p>
+        </div>
+        <div>
+            <h4 class="text-lg font-bold">Degree College Maheshpur</h4>
+            <p class="text-gray-600">History (Honors): 2025 - Present</p>
+        </div>
+    </section>
 
-<!-- Education Section -->
-<section id="education" class="bg-white shadow-md rounded-lg p-8 mb-8">
-<h3 class="text-2xl font-semibold mb-4">Education</h3>
-<div class="mb-4">
-<h4 class="text-lg font-bold">JNV Pakur</h4>
-<p class="text-gray-600">Intermediate: 2022</p>
-</div>
-<div>
-<h4 class="text-lg font-bold">Degree College Maheshpur</h4>
-<p class="text-gray-600">History (Honors): 2025 - Present</p>
-</div>
+    <!-- Contact Section -->
+    <section id="contact" class="bg-white shadow-md rounded-lg p-8">
+        <h3 class="text-2xl font-semibold mb-6">Contact Me</h3>
+        <div class="text-center">
+            <p class="mb-4 text-gray-700">
+                Want to discuss a project or have a question? 
+                Feel free to reach out via email.
+            </p>
+            <a 
+                href="mailto:sarfarazalam@tutamail.com?subject=Portfolio%20Inquiry" 
+                class="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+            >
+                <i class="fas fa-envelope mr-2"></i> Send Email
+            </a>
+        </div>
 
+        <div class="mt-6 text-center">
+            <h4 class="text-lg font-semibold mb-4">Connect with Me</h4>
+            <div class="flex justify-center space-x-6">
+                <a href="https://github.com/sarfarazalamgit" target="_blank" class="text-2xl text-gray-700 hover:text-gray-900">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+        </div>
+    </section>
 
-
-</section>
-
-<!-- Contact Section -->
-<section id="contact" class="bg-white shadow-md rounded-lg p-8">
-<h3 class="text-2xl font-semibold mb-6">Contact Me</h3>
-<div class="text-center">
-<p class="mb-4 text-gray-700">
-Want to discuss a project or have a question? 
-Feel free to reach out via email.
-</p>
-<a 
-href="mailto:sarfarazalam@tutamail.com?subject=Portfolio%20Inquiry" 
-class="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
->
-<i class="fas fa-envelope mr-2"></i> Send Email
-</a>
-</div>
-
-<div class="mt-6 text-center">
-<h4 class="text-lg font-semibold mb-4">Connect with Me</h4>
-<div class="flex justify-center space-x-6">
-<a href="https://github.com/sarfarazalamgit" target="_blank" class="text-2xl text-gray-700 hover:text-gray-900">
-<i class="fab fa-github"></i>
-</a>
-</div>
-</div>
-</section>
-
-<!-- Footer -->
-<footer class="text-center py-8">
-<p class="text-gray-600">© 2026 MD SARFARAZ ALAM. All rights reserved.</p>
-</footer>
+    <!-- Footer -->
+    <footer class="text-center py-8">
+        <p class="text-gray-600">© 2026 MD SARFARAZ ALAM. All rights reserved.</p>
+    </footer>
 </div>
 
 <script>
 const { createApp, ref } = Vue;
 
 createApp({
-	setup() {
-		const skills = ref([
-			'Pyspark', 'Databricks', 'Airflow', 'SQL', 'Python', 
-			'Linux', 'Apache Spark', 'AWS'
-		]);
-		
-		const projects = ref([
-			{
-				name: 'Goodcabs Data Engineering Modernization Project',
-				description: 'Transforming GoodCabs Regional Data Analytics through Databricks Lakehouse and Declarative Spark Pipelines ',
-				technologies: ['Python', 'Sql', 'Pyspark', 'Databricks Lakeflow', 'Spark Declarative Pipelines'],
-				githubLink: 'https://github.com/sarfarazalamgit/goodcabs-data-engineering-modernization/tree/main'
-			},
-			{
-				name: 'Data Modeling project using Databricks and PySpark',
-				description: 'Data Modeling project using Databricks and PySpark for ETL processes, data transformation, and analysis. ',
-				technologies: ['Databricks', 'Pyspark', 'Sql'],
-				githubLink: 'https://github.com/sarfarazalamgit/Data-Modeling-Project-with-Databricks-and-PySpark'
-			}
-		]);
-		
-		return {
-			skills,
-			projects
-		};
-	}
+    setup() {
+        const skills = ref([
+            'Pyspark', 'Databricks', 'Airflow', 'SQL', 'Python', 
+            'Linux', 'Apache Spark', 'AWS'
+        ]);
+
+        const projects = ref([
+            {
+                name: 'Goodcabs Data Engineering Modernization Project',
+                description: 'Transforming GoodCabs Regional Data Analytics through Databricks Lakehouse and Declarative Spark Pipelines ',
+                technologies: ['Python', 'Sql', 'Pyspark', 'Databricks Lakeflow', 'Spark Declarative Pipelines'],
+                githubLink: 'https://github.com/sarfarazalamgit/goodcabs-data-engineering-modernization/tree/main'
+            },
+            {
+                name: 'Data Modeling project using Databricks and PySpark',
+                description: 'Data Modeling project using Databricks and PySpark for ETL processes, data transformation, and analysis. ',
+                technologies: ['Databricks', 'Pyspark', 'Sql'],
+                githubLink: 'https://github.com/sarfarazalamgit/Data-Modeling-Project-with-Databricks-and-PySpark'
+            }
+        ]);
+
+        return {
+            skills,
+            projects
+        };
+    }
 }).mount('#app');
 </script>
 </body>
