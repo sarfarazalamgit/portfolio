@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Engineer Portfolio</title>
+    <title>Data Analyst Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
@@ -38,7 +38,7 @@
             alt="Profile" 
             class="mx-auto rounded-full w-48 h-48 object-cover mb-6 shadow-lg"
         >
-        <h2 class="text-4xl font-bold mb-4">Aspiring Data Engineer</h2>
+        <h2 class="text-4xl font-bold mb-4">Aspiring Data Analyst</h2>
         <p class="text-xl text-gray-600">
             Transforming Data Into Actionable Insights
         </p>
@@ -59,10 +59,7 @@
     <section id="about" class="bg-white shadow-md rounded-lg p-8 mb-8">
         <h3 class="text-2xl font-semibold mb-4">About Me</h3>
         <p class="text-gray-700">
-            Aspiring data engineer with knowledge in building scalable data pipelines, 
-            leveraging cloud technologies, and transforming complex data into strategic insights. 
-            Passionate about solving challenging data problems and driving business value through 
-            innovative technological solutions.
+           I am a passionate and motivated individual eager to dive into the world of data analysis. With a keen analytical mindset and a love for problem-solving, I'm excited to explore how data can drive informed decision-making. I thrive in collaborative settings, where I can contribute fresh ideas and transform complex data into actionable insights.
         </p>
     </section>
 
@@ -82,10 +79,15 @@
 
     <!-- Projects Section -->
     <section id="projects" class="mb-8">
-        <h3 class="text-2xl font-semibold mb-6">Data Engineering Projects</h3>
+        <h3 class="text-2xl font-semibold mb-6">Data Analyst Projects</h3>
         <div class="grid md:grid-cols-2 gap-6">
             <template v-for="project in projects" :key="project.name">
                 <div class="bg-white shadow-md rounded-lg p-6">
+                    <img 
+                        :src="project.image" 
+                        alt="Project Image" 
+                        class="rounded-lg mb-4 w-full h-48 object-cover"
+                    >
                     <h4 class="text-xl font-bold mb-3">{{ project.name }}</h4>
                     <p class="text-gray-600 mb-4">{{ project.description }}</p>
                     <div class="flex flex-wrap gap-2 mb-4">
@@ -111,7 +113,16 @@
     <section id="education" class="bg-white shadow-md rounded-lg p-8 mb-8">
         <h3 class="text-2xl font-semibold mb-4">Education</h3>
         <div>
-            <p class="text-gray-600">Higher Secondary Exam - JNV Pakur, Jharkhand</p>
+            <p class="text-gray-600">BCA (With Specialisations) <br>
+[Shoolini University] – [Himachal Pradesh] <br>
+Enrolled: 2026 – Present <br>
+</p>
+        </div> <br>
+        <div>
+            <p class="text-gray-600">Higher Secondary Exam <br>
+[Jawahar Navodaya Vidyalaya] – [Pakur, Jharkhand] <br>
+2022 <br>
+</p>
         </div>
     </section>
 
@@ -153,22 +164,21 @@ const { createApp, ref } = Vue;
 createApp({
     setup() {
         const skills = ref([
-            'Pyspark', 'Databricks', 'Airflow', 'SQL', 'Python', 
-            'Linux', 'Apache Spark', 'AWS'
+            'PowerBi', 'Excel', 'Pandas', 'SQL'
         ]);
 
         const projects = ref([
             {
-                name: 'Goodcabs Data Engineering Modernization Project',
-                description: 'Transforming GoodCabs Regional Data Analytics through Databricks Lakehouse and Declarative Spark Pipelines ',
-                technologies: ['Python', 'Sql', 'Pyspark', 'Databricks Lakeflow', 'Spark Declarative Pipelines'],
-                githubLink: 'https://github.com/sarfarazalamgit/goodcabs-data-engineering-modernization/tree/main'
+                name: 'Survey PowerBi Project',
+                description: 'This is a Power BI data professional survey breakdown project featuring an engaging dashboard report. It aims to provide insights into how various factors, such as career transitions, salary ranges, and job satisfaction, influence the career dynamics of data professionals.',
+                githubLink: 'https://github.com/sarfarazalamgit/survey-powerbi-project',
+                image: 'powerbi.jpg'
             },
             {
-                name: 'Data Modeling project using Databricks and PySpark',
-                description: 'Data Modeling project using Databricks and PySpark for ETL processes, data transformation, and analysis. ',
-                technologies: ['Databricks', 'Pyspark', 'Sql'],
-                githubLink: 'https://github.com/sarfarazalamgit/Data-Modeling-Project-with-Databricks-and-PySpark'
+                name: 'Excel Data Analysis Project',
+                description: 'This project utilizes a bike buyers dataset to create interactive pivot tables and visual dashboards, encompassing data preprocessing, cleaning, and visualization.',
+                githubLink: 'https://github.com/sarfarazalamgit/excel-data-analysis-project',
+                image: 'excel.jpg'
             }
         ]);
 
