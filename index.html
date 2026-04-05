@@ -37,7 +37,18 @@ nav a:hover{color:#00ffaa;}
 .stat h3{font-size:2rem;margin-bottom:0.3rem;}
 .stat p{font-size:1rem;color:#ccc;}
 .stat:hover{transform:translateY(-5px);box-shadow:0 8px 20px rgba(0,255,170,0.2);}
-.resume-btn{display:inline-block;margin-top:1rem;padding:0.8rem 1.6rem;background:#00ffaa;color:#121212;font-weight:600;border-radius:6px;transition:0.3s;}
+.resume-btn{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  padding:0.8rem 1.6rem;
+  background:#00ffaa;
+  color:#121212;
+  font-weight:600;
+  border-radius:6px;
+  z-index:1001;
+  box-shadow:0 5px 15px rgba(0,0,0,0.3);
+}
 .resume-btn:hover{background:#00cc88;transform:scale(1.05);}
 
 /* ===== Sections ===== */
