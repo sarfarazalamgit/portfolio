@@ -3,158 +3,230 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MD SARFARAZ ALAM | Data Analyst Portfolio</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+<title>Data Analyst Portfolio</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
-    [v-cloak] { display: none; }
-    html { scroll-behavior: smooth; }
-    .skill-card:hover { transform: scale(1.1); transition: 0.3s; }
-    .project-card:hover { transform: translateY(-5px); transition: 0.3s; box-shadow: 0 15px 25px rgba(0,0,0,0.1);}
+/* ===== Global Styles ===== */
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
+body{background:#121212;color:#ddd;scroll-behavior:smooth;}
+a{text-decoration:none;color:inherit;}
+
+/* ===== Header ===== */
+header{position:fixed;top:0;width:100%;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;background:rgba(18,18,18,0.95);backdrop-filter:blur(8px);box-shadow:0 2px 8px rgba(255,255,255,0.05);z-index:1000;}
+header h1{font-size:1.8rem;color:#00ffaa;font-weight:700;}
+nav a{margin-left:1.5rem;font-weight:500;color:#ccc;padding:0.3rem;transition:0.3s;}
+nav a.active{color:#00ffaa;border-bottom:2px solid #00ffaa;}
+nav a:hover{color:#00ffaa;}
+
+/* ===== Hero Section ===== */
+.hero{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:6rem 2rem 4rem;overflow:hidden;}
+#hero-bg{position:absolute;top:0;left:0;width:100%;height:100%;z-index:0;}
+.hero h2{font-size:2.8rem;margin-bottom:0.8rem;font-weight:700;color:#00ffaa;z-index:1;}
+.hero p{font-size:1.15rem;max-width:650px;color:#ccc;z-index:1;}
+.hero img{width:140px;height:140px;border-radius:50%;margin-bottom:1rem;border:4px solid #00ffaa;z-index:1;}
+.stats{display:flex;justify-content:center;flex-wrap:wrap;gap:2rem;margin-top:2rem;z-index:1;}
+.stat{background:rgba(255,255,255,0.05);padding:2rem;border-radius:12px;min-width:160px;text-align:center;}
+.stat i{font-size:2.2rem;color:#00ffaa;margin-bottom:0.5rem;display:block;}
+.stat h3{font-size:2rem;margin-bottom:0.3rem;}
+.stat p{font-size:1rem;color:#ccc;}
+.stat:hover{transform:translateY(-5px);box-shadow:0 8px 20px rgba(0,255,170,0.2);}
+.resume-btn{display:inline-block;margin-top:1rem;padding:0.8rem 1.6rem;background:#00ffaa;color:#121212;font-weight:600;border-radius:6px;transition:0.3s;}
+.resume-btn:hover{background:#00cc88;transform:scale(1.05);}
+
+/* ===== Sections ===== */
+section{padding:6rem 2rem;max-width:1000px;margin:auto;}
+section h2{font-size:2.4rem;margin-bottom:2.5rem;text-align:center;color:#00ffaa;}
+#about p,.education p{max-width:720px;margin:auto;text-align:center;color:#ccc;font-size:1.1rem;line-height:1.6;}
+
+/* ===== Skills ===== */
+.skills{display:flex;flex-wrap:wrap;justify-content:center;gap:1.2rem;}
+.skill{background:#1e1e1e;padding:1.3rem 2.3rem;border-radius:10px;display:flex;align-items:center;gap:0.7rem;font-weight:500;color:#ddd;transition:0.3s;}
+.skill i{font-size:1.5rem;color:#00ffaa;}
+.skill:hover{transform:translateY(-5px);box-shadow:0 10px 25px rgba(0,255,170,0.25);}
+
+/* ===== Portfolio ===== */
+.portfolio{display:flex;flex-direction:column;gap:2rem;justify-content:center;}
+.projects-container{display:flex;flex-wrap:wrap;gap:2rem;justify-content:center;}
+.project{flex:1 1 45%;max-width:45%;background:#1e1e1e;border-radius:10px;overflow:hidden;box-shadow:0 5px 15px rgba(0,255,170,0.15);transition:0.3s;display:flex;flex-direction:column;}
+.project img{width:100%;height:200px;object-fit:cover;transition:transform 0.4s;}
+.project-content{padding:1.2rem;}
+.project-content h3{color:#00ffaa;font-size:1.3rem;margin-bottom:0.5rem;}
+.project-content p{color:#ccc;margin-bottom:0.8rem;}
+.project-btn{display:inline-block;padding:0.6rem 1.2rem;background:#00ffaa;color:#121212;border-radius:6px;font-weight:600;transition:0.3s;}
+.project-btn:hover{background:#00cc88;transform:scale(1.05);}
+.project:hover img{transform:scale(1.05);}
+.project:hover{transform:translateY(-5px);box-shadow:0 12px 35px rgba(0,255,170,0.3);}
+
+/* ===== Education ===== */
+.education{display:flex;flex-direction:column;gap:1.8rem;align-items:center;}
+.edu-item{background:#1e1e1e;padding:1.8rem;border-radius:10px;width:100%;max-width:620px;display:flex;align-items:center;gap:1rem;box-shadow:0 5px 15px rgba(0,255,170,0.15);}
+.edu-item img{width:50px;height:50px;object-fit:contain;}
+.edu-text{display:flex;flex-direction:column;}
+.edu-text h3{color:#00ffaa;margin-bottom:0.3rem;font-size:1.3rem;}
+.edu-text p{color:#ccc;font-size:1rem;}
+
+/* ===== Contact ===== */
+.contact{text-align:center;}
+.contact a{display:inline-block;margin:1rem;padding:1rem 1.8rem;border-radius:8px;background:#00ffaa;color:#121212;font-weight:600;transition:0.3s;font-size:1.1rem;}
+.contact a:hover{background:#00cc88;transform:scale(1.05);}
+
+/* ===== Footer ===== */
+footer{text-align:center;padding:2rem;background:#121212;color:#ccc;}
+
+/* ===== Responsive ===== */
+@media(max-width:768px){
+  .project{flex:1 1 100%;max-width:100%;}
+  .skill{padding:1rem 1.8rem;}
+  .edu-item{flex-direction:column;align-items:center;text-align:center;}
+}
 </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body>
 
-<div id="app" v-cloak class="container mx-auto px-4 max-w-6xl">
-
-<!-- Navigation -->
-<nav class="flex justify-between items-center py-6 sticky top-0 bg-white shadow-md z-50">
-    <h1 class="text-2xl font-bold text-blue-700">MD SARFARAZ ALAM</h1>
-    <div class="space-x-4">
-        <a href="#about" class="hover:text-blue-600">About</a>
-        <a href="#skills" class="hover:text-blue-600">Skills</a>
-        <a href="#projects" class="hover:text-blue-600">Projects</a>
-        <a href="#education" class="hover:text-blue-600">Education</a>
-        <a href="#contact" class="hover:text-blue-600">Contact</a>
-    </div>
+<header>
+<h1>MD SARFARAZ ALAM</h1>
+<nav>
+<a href="#about">About</a>
+<a href="#skills">Skills</a>
+<a href="#portfolio">Portfolio</a>
+<a href="#education">Education</a>
+<a href="#contact">Connect</a>
 </nav>
-
-<!-- Hero Section -->
-<header class="text-center py-20 bg-gradient-to-r from-blue-100 to-blue-50 rounded-lg my-6 shadow-lg">
-    <img src="photo.jpeg" alt="Profile" class="mx-auto rounded-full w-52 h-52 object-cover mb-6 shadow-xl border-4 border-white">
-    <h2 class="text-4xl font-bold mb-2">Data Analyst</h2>
-    <p class="text-xl text-gray-700 mb-4">Turning Data into Actionable Insights | Python | SQL | Visualization</p>
-    <a href="resume.pdf" download class="inline-flex items-center px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition">
-        <i class="fas fa-file-download mr-2"></i> Download Resume
-    </a>
 </header>
 
-<!-- About Section -->
-<section id="about" class="bg-white shadow-md rounded-lg p-8 my-12">
-    <h3 class="text-2xl font-semibold mb-4 text-center">About Me</h3>
-    <p class="text-gray-700 text-center max-w-3xl mx-auto">
-        I am a passionate and driven Data Analyst with expertise in Python, SQL, Excel, and Data Visualization. I love transforming complex datasets into actionable insights that help businesses make informed decisions. I thrive in collaborative environments and enjoy solving challenging problems with data.
-    </p>
+<section class="hero">
+<canvas id="hero-bg"></canvas>
+<img src="https://via.placeholder.com/150" alt="Profile Picture">
+<h2>Hi, I'm MD SARFARAZ ALAM</h2>
+<p>A passionate Data Analyst turning data into insights with SQL, Python, and visualization tools.</p>
+<a href="resume.pdf" download class="resume-btn"><i class="fas fa-download"></i> Download Resume</a>
+
+<div class="stats">
+  <div class="stat">
+    <i class="fas fa-project-diagram"></i>
+    <h3>3</h3>
+    <p>Projects Completed</p>
+  </div>
+  <div class="stat">
+    <i class="fas fa-project-diagram"></i>
+    <h3>1</h3>
+    <p>Projects In Progress</p>
+  </div>
+  <div class="stat">
+    <i class="fas fa-lightbulb"></i>
+    <h3>8</h3>
+    <p>Skills Learned</p>
+  </div>
+</div>
 </section>
 
-<!-- Skills Section -->
-<section id="skills" class="my-12">
-    <h3 class="text-2xl font-semibold mb-6 text-center">Technical Skills</h3>
-    <div class="grid grid-cols-2 md:grid-cols-5 gap-6 justify-items-center">
-        <div v-for="skill in skills" :key="skill.name" class="skill-card flex flex-col items-center p-4 bg-white rounded-lg shadow-md transition">
-            <i :class="skill.icon" class="text-4xl mb-2 text-blue-500"></i>
-            <span class="text-gray-700 font-medium">{{ skill.name }}</span>
-        </div>
-    </div>
+<section id="about">
+<h2>About Me</h2>
+<p>I am a budding data analyst passionate about transforming data into actionable insights. I specialize in data cleaning, visualization, and building predictive models.</p>
 </section>
 
-<!-- Projects Section -->
-<section id="projects" class="my-12">
-    <h3 class="text-2xl font-semibold mb-6 text-center">Projects</h3>
-    <div class="grid md:grid-cols-2 gap-6">
-        <div v-for="project in projects" :key="project.name" class="project-card bg-white shadow-md rounded-lg p-6 transition">
-            <img :src="project.image" alt="Project Image" class="rounded-lg mb-4 w-full h-48 object-cover">
-            <h4 class="text-xl font-bold mb-3">{{ project.name }}</h4>
-            <p class="text-gray-600 mb-4">{{ project.description }}</p>
-            <div class="flex flex-wrap gap-2 mb-4">
-                <span v-for="tech in project.technologies" :key="tech" class="bg-gray-100 text-gray-700 px-2 py-1 rounded-full text-sm">{{ tech }}</span>
-            </div>
-            <a :href="project.githubLink" target="_blank" class="text-blue-600 hover:underline flex items-center">
-                <i class="fab fa-github mr-2"></i> View on GitHub
-            </a>
-        </div>
-    </div>
+<section id="skills" class="skills">
+<h2>Skills</h2>
+<div class="skills">
+<div class="skill"><i class="fab fa-python"></i> Python</div>
+<div class="skill"><i class="fas fa-database"></i> SQL</div>
+<div class="skill"><i class="fas fa-chart-line"></i> Tableau</div>
+<div class="skill"><i class="fas fa-chart-pie"></i> Power BI</div>
+<div class="skill"><i class="fas fa-calculator"></i> Excel</div>
+<div class="skill"><i class="fas fa-project-diagram"></i> Data Visualization</div>
+<div class="skill"><i class="fas fa-robot"></i> Machine Learning</div>
+<div class="skill"><i class="fas fa-percent"></i> Statistics</div>
+</div>
 </section>
 
-<!-- Education Section -->
-<section id="education" class="bg-white shadow-md rounded-lg p-8 my-12">
-    <h3 class="text-2xl font-semibold mb-4 text-center">Education</h3>
-    <div class="space-y-6">
-        <div class="flex items-start gap-4">
-            <i class="fas fa-graduation-cap text-2xl text-blue-500 mt-1"></i>
-            <div>
-                <p class="text-gray-700 font-medium">BCA (With Specialisations)</p>
-                <p class="text-gray-600">Shoolini University – Bajhol, Himachal Pradesh | 2026 – Present</p>
-            </div>
-        </div>
-        <div class="flex items-start gap-4">
-            <i class="fas fa-school text-2xl text-blue-500 mt-1"></i>
-            <div>
-                <p class="text-gray-700 font-medium">Higher Secondary Exam</p>
-                <p class="text-gray-600">Jawahar Navodaya Vidyalaya – Pakur, Jharkhand | 2022</p>
-            </div>
-        </div>
-    </div>
+<section id="portfolio" class="portfolio">
+<h2>Portfolio</h2>
+
+<div class="projects-container">
+<div class="project">
+  <img src="https://via.placeholder.com/400x200?text=Project+1" alt="Project 1">
+  <div class="project-content">
+    <h3>Sales Dashboard</h3>
+    <p>Interactive Tableau dashboard to track KPIs.</p>
+    <a href="https://github.com/" target="_blank" class="project-btn"><i class="fab fa-github"></i> View on GitHub</a>
+  </div>
+</div>
+
+<div class="project">
+  <img src="https://via.placeholder.com/400x200?text=Project+2" alt="Project 2">
+  <div class="project-content">
+    <h3>Supermarket Sales Analysis (EDA)</h3>
+    <p>This project analyzes a supermarket sales dataset to extract actionable business insights.</p>
+    <a href="https://github.com/sarfarazalamgit/supermarket-sales-analysis" target="_blank" class="project-btn"><i class="fab fa-github"></i> View on GitHub</a>
+  </div>
+</div>
+</div>
 </section>
 
-<!-- Contact Section -->
-<section id="contact" class="bg-white shadow-md rounded-lg p-8 my-12">
-    <h3 class="text-2xl font-semibold mb-6 text-center">Contact Me</h3>
-    <div class="text-center mb-6">
-        <p class="mb-4 text-gray-700">Interested in collaborating or have a question? Reach out via email.</p>
-        <a href="mailto:sarfarazalam@tutamail.com?subject=Portfolio%20Inquiry" class="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
-            <i class="fas fa-envelope mr-2"></i> Send Email
-        </a>
-    </div>
-    <div class="text-center">
-        <h4 class="text-lg font-semibold mb-4">Connect with Me</h4>
-        <div class="flex justify-center space-x-6">
-            <a href="https://github.com/sarfarazalamgit" target="_blank" class="text-2xl text-gray-700 hover:text-gray-900"><i class="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/sarfarazalam" target="_blank" class="text-2xl text-blue-600 hover:text-blue-800"><i class="fab fa-linkedin"></i></a>
-        </div>
-    </div>
+<section id="education" class="education">
+<h2>Education</h2>
+
+<div class="edu-item">
+  <i class="fas fa-university fa-2x" style="color:#00ffaa;"></i>
+  <div class="edu-text">
+    <h3>Bachelor in Computer Applications</h3>
+    <p>Shoolini University (Enrolled: 2026)</p>
+  </div>
+</div>
+
+<div class="edu-item">
+  <i class="fas fa-school fa-2x" style="color:#00ffaa;"></i>
+  <div class="edu-text">
+    <h3>Higher Secondary Examination</h3>
+    <p>Jawahar Navodaya Vidyalaya Pakur Jharkhand (2022)</p>
+  </div>
+</div>
+
 </section>
 
-<!-- Footer -->
-<footer class="text-center py-8">
-    <p class="text-gray-600">© 2026 MD SARFARAZ ALAM. All rights reserved.</p>
-</footer>
+<section id="contact" class="contact">
+<h2>Connect With Me</h2>
+<a href="https://github.com/sarfarazalamgit" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+<a href="mailto:sarfarazalam@tutamail.com"><i class="fas fa-envelope"></i> Email</a>
+</section>
 
-<!-- Vue.js Script -->
+<footer>&copy; 2026 MD SARFARAZ ALAM | Data Analyst Portfolio</footer>
+
 <script>
-const { createApp, ref } = Vue;
+// Particle network hero animation
+const canvas = document.getElementById('hero-bg');
+const ctx = canvas.getContext('2d');
+let particles = [];
 
-createApp({
-    setup() {
-        const skills = ref([
-            { name: 'Python', icon: 'fab fa-python' },
-            { name: 'SQL', icon: 'fas fa-database' },
-            { name: 'Excel', icon: 'fas fa-file-excel' },
-            { name: 'Power BI', icon: 'fas fa-chart-line' },
-            { name: 'Pandas', icon: 'fas fa-project-diagram' }
-        ]);
+function resize(){canvas.width=window.innerWidth;canvas.height=window.innerHeight;}
+resize();
+window.addEventListener('resize',resize);
 
-        const projects = ref([
-            {
-                name: 'Survey PowerBi Project',
-                description: 'Power BI survey project showcasing dashboards & insights into data professionals’ careers, salaries, and satisfaction.',
-                githubLink: 'https://github.com/sarfarazalamgit/survey-powerbi-project',
-                image: 'Power BI.png',
-                technologies: ['Power BI', 'Data Visualization']
-            },
-            {
-                name: 'Excel Data Analysis Project',
-                description: 'Analyzing a bike buyers dataset using Excel pivot tables and interactive dashboards with preprocessing & visualization.',
-                githubLink: 'https://github.com/sarfarazalamgit/excel-data-analysis-project',
-                image: 'Microsoft-Excel.png',
-                technologies: ['Excel', 'Pivot Tables', 'Dashboard']
-            }
-        ]);
+class Particle{
+constructor(){this.x=Math.random()*canvas.width;this.y=Math.random()*canvas.height;this.vx=(Math.random()-0.5)*0.3;this.vy=(Math.random()-0.5)*0.3;this.radius=1.5+Math.random()*1.5;}
+update(){this.x+=this.vx;this.y+=this.vy;if(this.x<0||this.x>canvas.width)this.vx*=-1;if(this.y<0||this.y>canvas.height)this.vy*=-1;}
+draw(){ctx.beginPath();ctx.arc(this.x,this.y,this.radius,0,Math.PI*2);ctx.fillStyle='rgba(0,255,170,0.6)';ctx.fill();}
+}
+for(let i=0;i<80;i++)particles.push(new Particle());
+function connectParticles(){for(let i=0;i<particles.length;i++){for(let j=i+1;j<particles.length;j++){let dx=particles[i].x-particles[j].x,dy=particles[i].y-particles[j].y,dist=Math.sqrt(dx*dx+dy*dy);if(dist<120){ctx.beginPath();ctx.strokeStyle=`rgba(0,255,170,${1-dist/120})`;ctx.moveTo(particles[i].x,particles[i].y);ctx.lineTo(particles[j].x,particles[j].y);ctx.lineWidth=0.5;ctx.stroke();}}}}
+function animate(){ctx.fillStyle='rgba(18,18,18,0.2)';ctx.fillRect(0,0,canvas.width,canvas.height);particles.forEach(p=>{p.update();p.draw();});connectParticles();requestAnimationFrame(animate);}
+animate();
 
-        return { skills, projects };
-    }
-}).mount('#app');
+// Scroll spy nav highlighting
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll("nav a");
+function updateNav(){
+const scrollPos = window.scrollY + window.innerHeight/2;
+let current = sections[0].id;
+sections.forEach(section=>{
+const sectionTop = section.offsetTop, sectionHeight = section.offsetHeight;
+if(scrollPos>=sectionTop && scrollPos<sectionTop+sectionHeight){current=section.id;}
+});
+navLinks.forEach(a=>{a.classList.remove("active");if(a.getAttribute("href")==="#"+current)a.classList.add("active");});
+}
+window.addEventListener("scroll",updateNav);
+window.addEventListener("resize",updateNav);
+updateNav();
 </script>
 
 </body>
